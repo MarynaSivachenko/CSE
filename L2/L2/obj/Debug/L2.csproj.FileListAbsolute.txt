@@ -6,3 +6,11 @@ C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\l2\L
 C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\l2\L2\L2\obj\Debug\L2.exe
 C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\l2\L2\L2\obj\Debug\L2.pdb
 C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\l2\L2\L2\obj\Debug\L2.csproj.CopyComplete
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\bin\Debug\L2.exe.config
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\bin\Debug\L2.exe
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\bin\Debug\L2.pdb
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\obj\Debug\L2.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\obj\Debug\L2.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\obj\Debug\L2.csproj.CopyComplete
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\obj\Debug\L2.exe
+C:\Users\user\Desktop\Навчання\4 курс\7 семестр\КПІ-3\CSE\L2\L2\obj\Debug\L2.pdb

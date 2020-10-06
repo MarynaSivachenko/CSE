@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestL2
@@ -8,127 +9,114 @@ namespace UnitTestL2
     {
 
         [TestMethod]
-        public void Equals_Vaska3_SameReferance_trueReturned()
+        public void GetFlag_falseReturned()
         {
-            Cat cat1 = new Cat("Vaska", 3);
-            Cat cat2 = cat1;
-            bool expected = true;
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.Equals(cat1, cat2);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void Equals_Vaska3_Murzik4_falseReturned()
-        {
-            Cat cat1 = new Cat("Vaska", 3);
-            Cat cat2 = new Cat("Murzik", 4);
             bool expected = false;
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.Equals(cat1, cat2);
+            bool actual = mbf.GetFlag();
 
             Assert.AreEqual(expected, actual);
         }
 
+
+
         [TestMethod]
-        public void Equals_world_SameReferance_trueReturned()
+        public void GetFlag_trueReturned()
         {
-            String s1 = "world";
-            String s2 = "world";
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
+
             bool expected = true;
-
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.Equals(s1, s2);
+            bool actual = mbf.GetFlag();
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Equals_Vaska3_Vaska3_trueReturned()
+        public void SetFlag_trueReturned()
         {
-            Cat cat1 = new Cat("Vaska", 3);
-            Cat cat2 = new Cat("Vaska", 3);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
+            for (ulong i = 0; i < 2; i++)
+            {
+                mbf.SetFlag(i);
+            }
+
             bool expected = true;
-
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.Equals(cat1, cat2);
+            bool actual = mbf.GetFlag();
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Equals_world_word_falseReturned()
+        public void ResetFlag_falseReturned()
         {
-            String s1 = new String(new char[] { 'w', 'o', 'r', 'l', 'd' });
-            String s2 = new String(new char[] { 'w', 'o', 'r', 'd' });
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
+            for (ulong i = 0; i < 2; i++)
+            {
+                mbf.ResetFlag(i);
+            }
+
+            bool expected = false;
+            bool actual = mbf.GetFlag();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetFlag_01_falseReturned()
+        {
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
+
+            mbf.SetFlag(1);
+
             bool expected = false;
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.Equals(s1, s2);
+            bool actual = mbf.GetFlag();
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Equals_world_world_trueReturned()
+        public void Equals_01_00_falseReturned()
         {
-            String s1 = new String(new char[] { 'w', 'o', 'r', 'l', 'd' });
-            String s2 = new String(new char[] { 'w', 'o', 'r', 'l', 'd' });
-            bool expected = true;
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.Equals(s1, s2);
+            mbf1.SetFlag(1);
 
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void ReferenceEquals_Vaska3_Vaska3_falseReturned()
-        {
-            Cat cat1 = new Cat("Vaska", 3);
-            Cat cat2 = new Cat("Vaska", 3);
             bool expected = false;
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.ReferenceEquals(cat1, cat2);
+            bool actual = mbf1.Equals(mbf2);
 
             Assert.AreEqual(expected, actual);
-
         }
 
         [TestMethod]
-        public void ReferenceEquals_Vaska3_SameReference_trueReturned()
+        public void Equals_00_00_trueReturned()
         {
-            Cat cat1 = new Cat("Vaska", 3);
-            Cat cat2 = cat1;
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
+
             bool expected = true;
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.ReferenceEquals(cat1, cat2);
+            bool actual = mbf1.Equals(mbf2);
 
             Assert.AreEqual(expected, actual);
-
         }
 
         [TestMethod]
-        public void ReferenceEquals_world_SameReferance_trueReturned()
+        public void Equals_sameRef_trueReturned()
         {
-            String s1 = "world";
-            String s2 = "world";
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = mbf1;
+
             bool expected = true;
 
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.ReferenceEquals(s1, s2);
+            bool actual = mbf1.Equals(mbf2);
 
             Assert.AreEqual(expected, actual);
-
         }
 
-        [TestMethod]
-        public void ReferenceEquals_world_world_falseReturned()
-        {
-            String s1 = new String(new char[] { 'w', 'o', 'r', 'l', 'd' });
-            String s2 = new String(new char[] { 'w', 'o', 'r', 'l', 'd' });
-            bool expected = false;
-
-            bool actual = IIG.BinaryFlag.MultipleBinaryFlag.ReferenceEquals(s1, s2);
-
-            Assert.AreEqual(expected, actual);
-
-        }
     }
 }
