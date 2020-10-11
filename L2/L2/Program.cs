@@ -16,7 +16,7 @@ namespace L2
             //Console.WriteLine(mbf1.GetFlag());
             //Console.WriteLine();
 
-            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(99, false);
             IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
             Console.WriteLine(mbf1.GetHashCode());
             mbf2.Dispose();

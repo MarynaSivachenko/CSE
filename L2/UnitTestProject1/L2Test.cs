@@ -9,6 +9,30 @@ namespace UnitTestL2
     {
 
         [TestMethod]
+        public void Constructor_MaxLength_falseReturned()
+        {
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(17179868703, false);
+      
+            bool expected = false;
+
+            bool actual = mbf.GetFlag();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Constructor_ulongMaxLength_falseReturned()
+        {
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(18446744073709551615, false);
+
+            bool expected = false;
+
+            bool actual = mbf.GetFlag();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void GetFlag_falseReturned()
         {
             IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
@@ -19,8 +43,6 @@ namespace UnitTestL2
 
             Assert.AreEqual(expected, actual);
         }
-
-
 
         [TestMethod]
         public void GetFlag_trueReturned()
@@ -34,10 +56,10 @@ namespace UnitTestL2
         }
 
         [TestMethod]
-        public void SetFlag_trueReturned()
+        public void SetFlag_1_99_trueReturned()
         {
-            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, false);
-            for (ulong i = 0; i < 2; i++)
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(99, false);
+            for (ulong i = 0; i < 99; i++)
             {
                 mbf.SetFlag(i);
             }
@@ -49,10 +71,40 @@ namespace UnitTestL2
         }
 
         [TestMethod]
-        public void ResetFlag_falseReturned()
+        public void SetFlag_1_999_trueReturned()
         {
-            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
-            for (ulong i = 0; i < 2; i++)
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(999, false);
+            for (ulong i = 0; i < 999; i++)
+            {
+                mbf.SetFlag(i);
+            }
+
+            bool expected = true;
+            bool actual = mbf.GetFlag();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ResetFlag_1_9_falseReturned()
+        {
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(9, true);
+            for (ulong i = 0; i < 9; i++)
+            {
+                mbf.ResetFlag(i);
+            }
+
+            bool expected = false;
+            bool actual = mbf.GetFlag();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ResetFlag_10_99_falseReturned()
+        {
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(99, true);
+            for (ulong i = 9; i < 99; i++)
             {
                 mbf.ResetFlag(i);
             }
