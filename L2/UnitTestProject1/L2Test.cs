@@ -88,7 +88,7 @@ namespace UnitTestL2
         [TestMethod]
         public void ResetFlag_1_9_falseReturned()
         {
-            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(9, true);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf = new IIG.BinaryFlag.MultipleBinaryFlag(99, true);
             for (ulong i = 0; i < 9; i++)
             {
                 mbf.ResetFlag(i);
