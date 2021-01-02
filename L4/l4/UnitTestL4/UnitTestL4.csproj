@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthDatabaseUtils.cs" />
-    <Compile Include="TestsL4.cs" />
+    <Compile Include="TestsL4DB1Record.cs" />
+    <Compile Include="TestsL4DBFewRecords.cs" />
+    <Compile Include="TestsL4FileWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
