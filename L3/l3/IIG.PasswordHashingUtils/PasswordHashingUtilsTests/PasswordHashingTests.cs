@@ -269,5 +269,46 @@ namespace PasswordHashingUtilsTests
             Assert.AreNotEqual(modAdler32Val, c);
 
         }
+
+        [TestMethod]
+        public void PasswordHasher_GetHash_LongPassword()
+        {
+            String val1 = PH.
+                GetHash("sdfghjksdfghjkhgfdsfghjkjhgfdsasdfghjkhgfazsdjkbhkdtyhs.fnjsаоvldjfnvlsdfjn" +
+                "gsljknglskejrnfgskdjfng;frehgpsrihgsdifhgs;dfgserhglseirhlgsdkjfnlgskjdnflgsjnlgsn;" +
+                "edrogs;edorigp;reihg;spfdh;vsdkjfngjdnfnvfdisvldifuvfudispidufhvufdipsidujfnv;zsdfn" +
+                ";adn;gvanr;gaoxg;erhguria;dfnv,dlfblsurgtpiudfn;sndfghsdufhgiudfhgsidufhgdifughfdiu" +
+                "gfiughspiudfnvsdkjfnvx.cjvsodfvs;pdfgjs;pfdgnvs;dfnb;dfnbcvnb;xclvknbx;fbnx;fdoibns" +
+                "doifnbsdofinbsgfjbns;dbnxdkjbnxfjnb;fn;xfnbs;gbnsdfbjcvnlbkxjcvnlbkjxcnvlbkjnlkjnlk" +
+                "jvnblkjnlgkjbnsdflkjbnslfkjnbalkjernglerkjnglwekjrgnlerkjgnlerkjtnlrkjngldkfjnlsjgn" +
+                "wlerkjgnwlerjtnlwerktjnwlerjtnwlerjktnlwekrjtnlwekrjtnlkjfnsdlkjnvlskdjfnvlknjfsslk" +
+                "jdfnglkwejrnglkejgnslfkdjnglewrkjnglwerkjgnlkjgnlewrkjnglwekrjntlwerjkntlerkjtnlwke" +
+                "jrntlwkejrntlwkejrntlwekjrntlwekrjtnwlerjngflsdkjfnglsdfjglsdifojvsdivjldkjfvalsdjb" +
+                "fwalejbrflwejbrq,rebhe,rnbw,erntbq,jerbglfjhvbsldfknvbsldfkbvleirleriuqlwiurehtwieu" +
+                "rhfweuifsdoiuvhpzuhxc pziuxhc pziuxchviaudhvaisdufhlawefbwalebfalsjdbfalweiubfiubfe" +
+                "uifpweiufbpqweuifbpqwieufbpqwieufbwlkedjbsalzkjdbcldsjcbvlsjdvbaldjvbaerubgeqpriugb" +
+                "qperiugbqperiubgqpeirubflqekrjbfwejbrw,erbwlerbdf.lsabgwperubgpsdiufvbslidfkjvbsler" +
+                "gbwlerfl.erbges,fdjebrlbgleidubgpqieurbpqieurbglqerjfbqwe,jfbq,erjgbre,tjhbt,yhjbel" +
+                "gbqleifbasdoicjpsdoidcjzpxoicvjpodsihvapihfqierjbtw,ejrknfb,akjbgljfnblkdjf, gjnale" +
+                "fjidfjpboijfgpoidjrtpoijxmnflisuhf21957843764387129854782658291938575637287yfgkjbnl" +
+                "fuhsiudfhgsidufhgsidfughlkdjfngskjrgbldfguhspeiruhgpiurehflkjdnv, zbd, jhvbdhjlajbh" +
+                "dfghjldjhebryoaeyt42935678976543234567890uytgrfedsfghnhngbfdsftyui0987654321qwsedft" +
+                "gyuiolk, mnbvcdswq1234567890polkjhgtrewqaSZDFGHJK,MNBFDLIFJHUGLSIUHGLDUIGHLSFGBLXFU" +
+                "Hldiuthlgdiuthlgiduhtglsjrtbgjzdfbvx,mcvb,zdkjfha;eirsrthgblkfjgfjbjfgbfjbgrervrvwd" +
+                "bvnbczkwjtuyuiiqoskmvnbmbn,klkpp;'./[];'hwqwruoputrewqnsslzlz,xmmbnfjdkaqpweiriyujs" +
+                "efbsldfjvbx,mvb,djbcaihfpqweiytwriuytpeuirtpqiwuefhaksdjvbz,jxcvbz;dkifjpwq48573249" +
+                "8tfjsdilvnzxkjcvn.zkfdjngsdjgths;trihj[rtigj;xfodbn.cjv.zkrjntw;iotw49t[d0f9vidfioj" +
+                "gs;else/ rlktmwe / klrnt;sgodfigdofijg[sorifjzmgdkfng;srfoh;gihgs;UriHostNameType;f" +
+                "gna;junvqpaeobrvqperhbgvqp;4ruj5gb4i2pu5brqp;ref, gbqp;4er6jub5gp2i54rnjbg;werjbgwl" +
+                "rejbglw4i5ublwrtbglsdrfbgvlswrfgbvleswfgbvlseirgblwi5rlbgsrgbtlwrbglesjbglswerjbgvl" +
+                "asfjvbg;sefdjvb;gsdfjeuhbg");
+        }
+
+        
+
     }
+
+  
 }
+
+
