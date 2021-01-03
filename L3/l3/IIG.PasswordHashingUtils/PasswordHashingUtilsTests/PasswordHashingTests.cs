@@ -8,8 +8,7 @@ namespace PasswordHashingUtilsTests
     {
         [TestMethod]
         public void PasswordHasher_Init_AllValid()
-        {
-            
+        {           
             var a = "string";
             uint b = 5;
             
@@ -29,7 +28,6 @@ namespace PasswordHashingUtilsTests
         [TestMethod]
         public void PasswordHasher_Init_FirstValid()
         {
-
             var a = "string";
             uint b = 0;
 
@@ -44,13 +42,11 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreEqual(saltVal, a);
             Assert.AreNotEqual(modAdler32Val, b);
-        
         }
 
         [TestMethod]
         public void PasswordHasher_Init_SecondValid()
         {
-
             var a = "";
             uint b = 5;
 
@@ -65,13 +61,11 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreNotEqual(saltVal, a);
             Assert.AreEqual(modAdler32Val, b);
-
         }
 
         [TestMethod]
         public void PasswordHasher_Init_Second2Valid()
         {
-
             String a = null;
             uint b = 5;
 
@@ -86,13 +80,11 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreNotEqual(saltVal, a);
             Assert.AreEqual(modAdler32Val, b);
-
         }
 
         [TestMethod]
         public void PasswordHasher_Init_AllInvalid()
         {
-
             String a = null;
             uint b = 0;
 
@@ -107,13 +99,11 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreNotEqual(saltVal, a);
             Assert.AreNotEqual(modAdler32Val, b);
-
         }
 
         [TestMethod]
         public void PasswordHasher_Adler32CheckSum_1Field()
         {
-
             var a = "n";
            
             IIG.PasswordHashingUtils.PasswordHasher.Init(null ,2);
@@ -121,18 +111,14 @@ namespace PasswordHashingUtilsTests
             Type type = typeof(IIG.PasswordHashingUtils.PasswordHasher);
             var Adler32CheckSumInfo = type.GetMethod("Adler32CheckSum", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
            
-            var Adler32CheckSumVal = Adler32CheckSumInfo.Invoke(null, new object[]{a, 0, 0});
-           
+            var Adler32CheckSumVal = Adler32CheckSumInfo.Invoke(null, new object[]{a, 0, 0});        
             
-            Assert.AreEqual("01000000", Adler32CheckSumVal);
-            
-
+            Assert.AreEqual("01000000", Adler32CheckSumVal);          
         }
 
         [TestMethod]
         public void PasswordHasher_Adler32CheckSum_3NegativeFields()
         {
-
             var a = "n";
 
             IIG.PasswordHashingUtils.PasswordHasher.Init(null, 2);
@@ -142,10 +128,7 @@ namespace PasswordHashingUtilsTests
 
             var Adler32CheckSumVal = Adler32CheckSumInfo.Invoke(null, new object[] { a, -1, -1 });
 
-
             Assert.AreEqual("01000000", Adler32CheckSumVal);
-
-
         }
 
         [TestMethod]
@@ -161,15 +144,12 @@ namespace PasswordHashingUtilsTests
 
             var Adler32CheckSumVal = Adler32CheckSumInfo.Invoke(null, new object[] { a, 1, 1 });
 
-
             Assert.AreEqual("01000000", Adler32CheckSumVal);
-
         }
 
         [TestMethod]
         public void PasswordHasher_GetHash_NegativeField()
         {
-
             var a = "-11";
             var b = "1";
 
@@ -178,15 +158,12 @@ namespace PasswordHashingUtilsTests
             IIG.PasswordHashingUtils.PasswordHasher.Init(null, 2);
             String val2 = IIG.PasswordHashingUtils.PasswordHasher.GetHash(b);
 
-
             Assert.AreNotEqual(val1, val2);
-
         }
 
         [TestMethod]
         public void PasswordHasher_GetHash_WithInitField()
         {
-
             var a = "-1";
             var b = "1";
             uint c = 2;
@@ -207,7 +184,6 @@ namespace PasswordHashingUtilsTests
         [TestMethod]
         public void PasswordHasher_GetHash_WithInitInvalidField()
         {
-
             var a = "-1";
             String b = null;
             uint c = 0;
@@ -223,13 +199,11 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreNotEqual(saltVal, b);
             Assert.AreNotEqual(modAdler32Val, c);
-
         }
 
         [TestMethod]
         public void PasswordHasher_GetHash_WithInitInvalid1Field()
         {
-
             var a = "-1";
             String b = null;
             uint c = 2;
@@ -245,13 +219,11 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreNotEqual(saltVal, b);
             Assert.AreEqual(modAdler32Val, c);
-
         }
 
         [TestMethod]
         public void PasswordHasher_GetHash_WithInitInvalid2Field()
         {
-
             var a = "-1";
             var b = "1";
             uint c = 0;
@@ -267,7 +239,6 @@ namespace PasswordHashingUtilsTests
 
             Assert.AreEqual(saltVal, b);
             Assert.AreNotEqual(modAdler32Val, c);
-
         }
 
         [TestMethod]
@@ -302,13 +273,8 @@ namespace PasswordHashingUtilsTests
                 "gna;junvqpaeobrvqperhbgvqp;4ruj5gb4i2pu5brqp;ref, gbqp;4er6jub5gp2i54rnjbg;werjbgwl" +
                 "rejbglw4i5ublwrtbglsdrfbgvlswrfgbvleswfgbvlseirgblwi5rlbgsrgbtlwrbglesjbglswerjbgvl" +
                 "asfjvbg;sefdjvb;gsdfjeuhbg");
-        }
-
-        
-
-    }
-
-  
+        }      
+    } 
 }
 
 
