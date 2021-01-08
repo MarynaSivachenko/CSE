@@ -24,10 +24,46 @@ namespace UnitTestL4
         string newdLogin = IIG.PasswordHashingUtils.PasswordHasher.GetHash("user1change");
         string newdPassword = IIG.PasswordHashingUtils.PasswordHasher.GetHash("user1passChange");
 
+        string spaceLP = IIG.PasswordHashingUtils.PasswordHasher.GetHash(" ");
+        string fewSpaceLP = IIG.PasswordHashingUtils.PasswordHasher.GetHash("      ");
+
+        string spSymbolsLP = IIG.PasswordHashingUtils.PasswordHasher.GetHash("!@#$%^&*()_+~:?><\\|\"'");
+
+
         [TestMethod]
         public void Database_Add()
         {
             Assert.IsTrue(authDatabaseUtils.AddCredentials(dLogin, dPassword));
+        }
+
+        [TestMethod]
+        public void Database_Add_nullLP()
+        {
+            Assert.IsFalse(authDatabaseUtils.AddCredentials(null, null));
+        }
+
+        [TestMethod]
+        public void Database_Add_spaceLP()
+        {
+            Assert.IsTrue(authDatabaseUtils.AddCredentials(spaceLP, spaceLP));
+        }
+
+        [TestMethod]
+        public void Database_Add_fewSpaceLP()
+        {
+            Assert.IsTrue(authDatabaseUtils.AddCredentials(fewSpaceLP, fewSpaceLP));
+        }
+
+        [TestMethod]
+        public void Database_Add_spSymbols()
+        {
+            Assert.IsFalse(authDatabaseUtils.AddCredentials("!@#$%^&*()_+~:?><\\|\"'", "!@#$%^&*()_+~:?><|\\\"'"));
+        }
+
+        [TestMethod]
+        public void Database_Add_spSymbolsHash()
+        {
+            Assert.IsTrue(authDatabaseUtils.AddCredentials(spSymbolsLP, spSymbolsLP));
         }
 
         [TestMethod]
@@ -46,6 +82,14 @@ namespace UnitTestL4
         public void Database_Delete()
         {
             Assert.IsTrue(authDatabaseUtils.DeleteCredentials(newdLogin, newdPassword));
+        }
+
+        [TestMethod]
+        public void Database_DeleteAllS()
+        {
+            Assert.IsTrue(authDatabaseUtils.DeleteCredentials(spaceLP, spaceLP)
+                && authDatabaseUtils.DeleteCredentials(fewSpaceLP, fewSpaceLP) 
+                && authDatabaseUtils.DeleteCredentials(spSymbolsLP, spSymbolsLP));
         }
     }
 }

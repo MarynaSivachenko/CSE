@@ -33,29 +33,23 @@ namespace UnitTestL4
         [TestMethod]
         public void Database_AddFew()
         {
-            bool res;
-            bool res2 = authDatabaseUtils.AddCredentials(dLogin, dPassword);
-            bool res1 = authDatabaseUtils.AddCredentials(newdLogin, newdPassword);
-
-            if (res1 == true && res2 == true)
-                res = true;
-            else
-                res = false;
-            Assert.IsTrue(res);
+            Assert.IsTrue(authDatabaseUtils.AddCredentials(dLogin, dPassword) 
+                && authDatabaseUtils.AddCredentials(newdLogin, newdPassword));
         }
 
         [TestMethod]
         public void Database_CheckFew()
         {
-            bool res;
+            /*bool res;
             bool res2 = authDatabaseUtils.CheckCredentials(dLogin, dPassword);
             bool res1 = authDatabaseUtils.CheckCredentials(newdLogin, newdPassword);
 
             if (res1 == true && res2 == true)
                 res = true;
             else
-                res = false;
-            Assert.IsTrue(res);
+                res = false;*/
+            Assert.IsTrue(authDatabaseUtils.CheckCredentials(dLogin, dPassword) 
+                && authDatabaseUtils.CheckCredentials(newdLogin, newdPassword));
         }
 
         [TestMethod]
